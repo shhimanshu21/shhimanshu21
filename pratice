@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>task1</title>
+</head>
+
+<body>
+    <h2>Making Table</h2>
+    <input type="text" id="myText"  /> 
+    <button onclick="myFunction()">Add</button><br>
+    <button onclick="myFunction3()">Sort</button>
+    <button onclick="myFunction4()">revSort</button><br>
+    <input type="text" id="int"  />
+    <button onclick="myFunction5()">filter</button>
+    <p id="demo"></p>
+    <script>
+        var newArray = [];
+        function myFunction() {
+
+            var x = document.getElementById("myText").value;
+            newArray.push(x);
+            console.log('all values', newArray)
+
+            fLen = newArray.length;
+
+            text = "<ol>";
+            for (i = 0; i < fLen; i++) {
+                text += "<li>" + newArray[i] + "<button onclick='myFunction1()'>delete</button></li>";
+
+            }
+            text += "</ol>";
+            a = document.getElementById("demo").innerHTML = text;
+
+        }
+        function myFunction1() {
+            newArray.splice(newArray.length[a], 1);
+            document.getElementById("demo").innerHTML = newArray;
+            alert("Output :" + newArray);
+        }
+        function myFunction3() {
+            var sort = newArray.sort(function (a, b) { return a - b });
+            document.getElementById("demo").innerHTML = sort;
+        }
+        function myFunction4() {
+            newArray.sort(function (a, b) { return b - a });
+            document.getElementById("demo").innerHTML = newArray;
+        }
+        function myFunction5() {
+            var j = document.getElementById("int").value;
+            console.log('j', j)
+            var str = newArray.filter(Element => Element.includes(j));
+
+            document.getElementById("demo").innerHTML = str;
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
