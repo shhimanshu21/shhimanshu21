@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>link pages</title>
+</head>
+<h2>Link Pages</h2>
+<button onclick="myFunction()">FB</button>
+<button onclick="myFunction1()">Insta</button>
+<button onclick="myFunction2()">whatsApp</button>
+<button onclick="myFunction3()">Twitter</button>
+<body>
+    <script>
+    function myFunction(){
+    window.open("https://www.facebook.com/")}
+    function myFunction1(){
+    window.open("https://www.instagram.com/")}
+    function myFunction2(){
+    window.open("https://web.whatsapp.com/")}
+    function myFunction3(){
+    window.open("https://twitter.com/?lang=en")}
+    </script>
+</body>
+</html>
