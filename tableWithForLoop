@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>forlooping</title>
+</head>
+
+<body>
+    <h2>Making Table</h2>
+    <input type="text1" id="text1"  />
+    <input type="text2" id="text2"  />
+    <button onclick="myFunction()">Output</button>
+    <p id = "demo"></p>
+<script>
+    
+    var i , result;
+    function myFunction(){
+    var j = document.getElementById("text1").value;
+    var k = document.getElementById("text2").value;
+    for( i = 1; i <=k; i++) {
+         result = j * i;
+         document.write(j+"*" + i +"=" + result + "<br>");
+    }
+ }
+</script>
+
+</body>
+</html>
