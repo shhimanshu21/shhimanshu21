@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>forlooping</title>
+</head>
+
+<body>
+    <h2>Making Table With For</h2>
+    <input type="number" id="text1"  />
+    <input type="number" id="text2"  />
+    <button onclick="myFunction()">Output</button>
+    <p id = "demo"></p>
+<script>
+    
+    var result=0,j=0,k=0;
+    function myFunction(){
+    var j = document.getElementById("text1").value;
+    var k = document.getElementById("text2").value;
+
+    for( let i = 1; i<=50; i=i+parseInt(k)){ 
+        result = j * i; 
+         document.write(j+" * " + i +" = " + result + "<br>");
+        
+    }
+    
+}
+ 
+</script>
+
+</body>
+</html>
