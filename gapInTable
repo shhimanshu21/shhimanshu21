@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>whilelooping2</title>
+</head>
+
+<body>
+    <h2>Making Table with While</h2>
+    <input type="number" id="text1"  />
+    <input type="number" id="text2"  />
+    <button onclick="myFunction()">Output</button>
+    <p id = "demo"></p>
+<script>
+    
+    var result;
+    function myFunction(){
+    var j = document.getElementById("text1").value;
+    var k = document.getElementById("text2").value;
+    var i=1;
+    while(i<=50) {
+         result = j * (i+k);
+         document.write(j+"*" + i +"=" + result + "<br>");
+         i=i+parseInt(k);
+    }
+ }
+</script>
+
+</body>
+</html>
