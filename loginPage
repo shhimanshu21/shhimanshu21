@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loginpage</title>
+    </head>
+<body>
+    <h2>Login Page</h2>               
+            <form>
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" id="username" />
+                </div>
+                <div class="form-group">	
+                    <label>Password :</label>
+                    <input type="password" class="form-control" id="password"/>
+                </div>
+                <button type="button" id="login" onclick="userLogin();">Login</button>
+            </form>
+            <p id="demo"></p>
+<script >
+     function userLogin(){   
+         var username = document.getElementById("username").value;
+         var password = document.getElementById("password").value;
+          function output(){
+            alert ("Login successfully");
+                 document.write("hello "+username);
+          }                                                         
+         if(username=="" || password==""){
+             alert ("Please complete the required field!");
+         }else{
+             if (username == 'admin' && password == '12'){
+                 output();}
+                 else if(username == 'ram' && password == '123'){
+                    output(); }
+                 else if(username == 'sham' && password == '1234'){
+                    output(); }
+                   else if(username == 'a' && password == '12345'){
+                    output(); }
+                        else if(username == 'b' && password == '123456'){
+                            output(); }
+             else{
+                 alert("Invalid username : " +username+ " or password : "+password); 
+            }
+        }
+     }
+</script>	
+</body>
+</html>
