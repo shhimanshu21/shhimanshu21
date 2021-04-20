@@ -11,11 +11,17 @@ export default class App extends Component {
   }
 
   go = () => {
+           const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (reg.test(this.state.email) === true){
+               alert('valid');
+           }
+           else{
+               alert();
+           }
  
   }
   
-  onpress() {
-  }
+  
 
   render() {
     return (
@@ -24,27 +30,29 @@ export default class App extends Component {
         
       <Text style={styles.inputext}>Facebook</Text>
         <TextInput
-          //value={this.state.username}
-          //onChangeText={(username) => this.setState({ username })}
-           //label='Email'
+          value={this.state.username}
+          onChangeText={(username) => this.setState({ username })}
+           label='Email'
            placeholder="Email"
            style={styles.input}
         />
         <TextInput
           value={this.state.password}
-          //onChangeText={(password) => this.setState({ password })}
+          onChangeText={(password) => this.setState({ password })}
           label='Password'
            placeholder="Password"
           secureTextEntry={true}
           style={styles.input}
         />
         <View style={styles.button}>
-        <TouchableHighlight style={{backgroundColor:"#dee3de",alignItems:"center",padding:10,marginTop:10}}>
-          <Text style={{}}>Sign In</Text>
+        <TouchableHighlight onpress = {() =>alert("hello")}
+         style={{backgroundColor:"#dee3de",alignItems:"center",padding:10,marginTop:10}}>
+          <Text style={{fontWeight: 'bold',color:'#757571'}}>Login</Text>
         </TouchableHighlight>
         <View>
-        <TouchableHighlight style={{backgroundColor:"#dee3de",alignItems:"center",padding:10,marginTop:10}}>
-          <Text style={{}}>Sign Up</Text>
+        <TouchableHighlight 
+        style={{backgroundColor:"#3b5998",alignItems:"center",padding:2,marginTop:80}}>
+          <Text style={{fontWeight: 'bold',color:'#dee3de'}}>Forgot Password</Text>
         </TouchableHighlight>
         
         </View>
@@ -72,19 +80,19 @@ const styles = StyleSheet.create({
     backgroundColor:'white'
   },
   inputext: {
-    width: 260,
+    //width: 200,
     height: 100,
-    fontSize : 40,
-    padding: 10,
-    textAlign:'center',
+    fontSize : 35,
+    //padding: 5,
+    //textAlign:'center',
     fontWeight:'bold',
-    marginBottom: 10,
+    //marginBottom: 10,
     color:'white'
   },
   button:{
     width: 325,
-    height: 50,
-    padding: 35,
+    height: 60,
+    padding: 40,
     
     
   },
