@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Alert, Button, View, StyleSheet, TextInput,ImageBackground} from 'react-native';
+import { Text, Alert, Button, View, StyleSheet, TextInput,ImageBackground,TouchableHighlight} from 'react-native';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ export default class App extends Component {
  
   }
   
-  onLogin() {
+  onpress() {
   }
 
   render() {
@@ -24,31 +24,31 @@ export default class App extends Component {
         
       <Text style={styles.inputext}>Facebook</Text>
         <TextInput
-          value={this.state.username}
-          onChangeText={(username) => this.setState({ username })}
-           label='Email'
+          //value={this.state.username}
+          //onChangeText={(username) => this.setState({ username })}
+           //label='Email'
            placeholder="Email"
-          style={styles.input}
+           style={styles.input}
         />
         <TextInput
           value={this.state.password}
-          onChangeText={(password) => this.setState({ password })}
+          //onChangeText={(password) => this.setState({ password })}
           label='Password'
            placeholder="Password"
           secureTextEntry={true}
           style={styles.input}
         />
+        <View style={styles.button}>
+        <TouchableHighlight style={{backgroundColor:"#dee3de",alignItems:"center",padding:10,marginTop:10}}>
+          <Text style={{}}>Sign In</Text>
+        </TouchableHighlight>
+        <View>
+        <TouchableHighlight style={{backgroundColor:"#dee3de",alignItems:"center",padding:10,marginTop:10}}>
+          <Text style={{}}>Sign Up</Text>
+        </TouchableHighlight>
         
-        <Button
-          title={'Login'}
-          style={styles.input}
-          onPress={this.onLogin.bind(this)}
-        />
-        <Button
-          title={'SIGN IN'}
-          style={styles.input}
-          onPress={this.onLogin.bind(this)}
-        />
+        </View>
+        </View>
       </View>
     );
   }
@@ -64,25 +64,28 @@ const styles = StyleSheet.create({
   },
   input: {
     width: 250,
-    height: 10,
+    height: 20,
     padding: 20,
     borderWidth: 1,
     
     borderColor: '#3b5998',
-    //marginBottom: 1,
     backgroundColor:'white'
   },
   inputext: {
     width: 260,
-    height: 70,
-    fontSize : 23,
+    height: 100,
+    fontSize : 40,
     padding: 10,
     textAlign:'center',
     fontWeight:'bold',
-    //borderWidth: 0,
-    //borderColor: 'black',
     marginBottom: 10,
     color:'white'
-    //backgroundColor:'white'
+  },
+  button:{
+    width: 325,
+    height: 50,
+    padding: 35,
+    
+    
   },
 });
