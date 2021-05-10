@@ -1,0 +1,123 @@
+import React from 'react'; 
+import AsyncStorage from '@react-native-community/async-storage'
+import {StyleSheet,Text,View,TextInput, Pressable,Image} from 'react-native';
+import { useState } from 'react';
+
+
+export default function Log() {
+
+    const[Title,setTitle] = useState()
+    const[Discription,setDisc] = useState()
+    const [Amount,setAmt] = useState()
+
+    // const data2=()=>[{
+    //     id:Title,
+    //     name:Discription,
+    //     amount:Amount,
+    //     image:require('../assets/image2.png')
+    // }]
+
+    const add= async ()=>{
+        if(Title&&Discription&&Amount!=null){
+        var a = {Title,Discription,Amount}
+      var data = JSON.stringify(a)
+      AsyncStorage.setItem("User",data)
+      console.warn('add',data)
+    }else{
+        alert('fill required field')
+    }
+}
+
+
+const onlogin=()=>{
+    AsyncStorage.getItem('User').then((data) => {
+      let data1 = JSON.parse(data)
+      console.warn(('show',data1)) 
+        if(data1=data){
+            require('../assets/image2.png')
+        }
+        else{
+            alert('empty')
+        }
+    })
+    }
+
+
+    return(
+            <View style={styles.container}>
+                <View >
+                    <Text style={{fontSize:34,position:'relative',left:120}}>E-Comm</Text> 
+                </View>
+                <TextInput
+                placeholder=" Title"
+                style={{height:50,backgroundColor:'white',marginBottom:10,marginTop:10
+                }}
+                value={Title}
+                onChangeText={value => setTitle(value)}
+                />
+                <TextInput
+                placeholder="Discription"
+                style={{height:50,backgroundColor:'white',marginBottom:10,marginTop:10
+                }}
+                value={Discription}
+                onChangeText={value => setDisc(value)}
+                />
+                <TextInput
+                placeholder="Amount"
+                style={{height:50,backgroundColor:'white',marginBottom:10,marginTop:10
+                }}
+                value={Amount}
+                onChangeText={value => setAmt(value)}
+                />
+            <Pressable 
+            style={{
+                backgroundColor: 'white',
+                alignItems: 'center',
+                padding: 4,
+                borderRadius: 20,
+                height: 40,
+                width:240,
+                position:'relative',
+                left:70,
+                top:10,
+                
+              }}
+            onPress={add}
+             >
+                 
+                <Text style={{ color:'black', fontWeight: 'bold',fontSize:20, }}>ADD</Text>
+            </Pressable>
+            <View>
+                
+            <Pressable 
+            style={{
+                backgroundColor: 'white',
+                alignItems: 'center',
+                padding: 4,
+                borderRadius: 20,
+                height: 40,
+                width:240,
+                position:'relative',
+                left:70,
+                top:20
+              }}
+              
+            onPress= {onlogin}
+             >
+            
+                <Text style={{ color:'black', fontWeight: 'bold',fontSize:20, }}>show</Text>
+            </Pressable>
+            </View>
+            </View>
+        );
+    }
+   
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:'#87CEFA',
+        
+        
+    }
+})
