@@ -1,0 +1,55 @@
+import React,{Component} from 'react';
+import {StyleSheet,View,Text,}  from 'react-native'
+
+
+import NetInfo from '@react-native-community/netinfo';
+
+export default class NetInfos extends Component{
+
+    NetInfoSubscribtion = null;
+
+    constructor(props){
+        super(props);
+        this.state={
+        connection_status: false,
+        connection_type: null,
+        }
+    }
+
+    componentDidMount(){
+
+        this.NetInfoSubscribtion = NetInfo.addEventListener(
+        this._handleConnectivityChange,
+        )
+
+    }
+
+    componentWillUnmount(){
+        this.NetInfoSubscribtion && this.NetInfoSubscribtion();
+    }
+
+
+    _handleConnectivityChange = (state) => {
+        this.setState({ 
+            connection_status: state.isConnected ,
+            connection_type: state.type
+        })
+    }
+
+    render(){
+        return(
+
+            <View>
+                <Text>
+                    Connection Status : {this.state.connection_status ? 'connected' : 'Disconnected'}
+                </Text>
+                <Text>
+                    Connection type : {this.state.connection_type }
+                </Text>
+            </View>
+        )
+    }
+
+
+}
+
